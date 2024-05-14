@@ -11,8 +11,9 @@ export default function TodoTable({ todos }) {
         </tr>
       </thead>
       <tbody>
-        {todos.map((todoItem, index) => (
+        {todos.map((todoItem) => (
           <TodoRowItem
+            key={todoItem.rowNumber}
             rowNumber={todoItem.rowNumber}
             rowDescription={todoItem.rowDescription}
             rowAssigned={todoItem.rowAssigned}
