@@ -1,6 +1,6 @@
 import TodoRowItem from './TodoRowItem';
 
-export default function TodoTable({ todos }) {
+export default function TodoTable({ todos, handleDeleteTodoClick }) {
   return (
     <table className='table table-hover'>
       <thead>
@@ -17,6 +17,7 @@ export default function TodoTable({ todos }) {
             rowNumber={todoItem.rowNumber}
             rowDescription={todoItem.rowDescription}
             rowAssigned={todoItem.rowAssigned}
+            handleDeleteTodoClick={handleDeleteTodoClick}
           />
         ))}
       </tbody>

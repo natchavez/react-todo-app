@@ -33,12 +33,20 @@ function App() {
     setTodos((todos) => [...todos, newTodo]);
   };
 
+  const handleDeleteTodo = (rowNumberToDelete) => {
+    const currentTodos = [...todos];
+    let filtered = currentTodos.filter(function (value) {
+      return value.rowNumber !== rowNumberToDelete;
+    });
+    setTodos(filtered);
+  };
+
   return (
     <div className='mt-5 container'>
       <div className='card'>
         <div className='card-header'>Your Todo's</div>
         <div className='card-body'>
-          <TodoTable todos={todos} />
+          <TodoTable todos={todos} handleDeleteTodoClick={handleDeleteTodo} />
 
           <NewTodoForm handleAddTodoClick={handleAddTodoClick} />
         </div>
