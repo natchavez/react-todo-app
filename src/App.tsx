@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
-import TodoTable from './components/TodoTable';
-import NewTodoForm from './components/NewTodoForm';
+import { NewTodoForm } from './components/NewTodoForm';
+import { TodoTable } from './components/TodoTable';
 
 function App() {
   const [showAddTodoForm, setShowAddTodoForm] = useState(false);
@@ -22,7 +22,7 @@ function App() {
     setShowAddTodoForm((isShowing) => !isShowing);
   };
 
-  const handleAddTodoClick = (assigned, description) => {
+  const handleAddTodoClick = (assigned: string, description: string) => {
     let rowNumber = 0;
     const currentTodos = [...todos];
     if (currentTodos.length > 0) {
@@ -38,7 +38,7 @@ function App() {
     setTodos((todos) => [...todos, newTodo]);
   };
 
-  const handleDeleteTodo = (rowNumberToDelete) => {
+  const handleDeleteTodo = (rowNumberToDelete: number) => {
     const currentTodos = [...todos];
     let filtered = currentTodos.filter(function (value) {
       return value.rowNumber !== rowNumberToDelete;

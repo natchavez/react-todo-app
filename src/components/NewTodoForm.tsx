@@ -1,12 +1,15 @@
+import React from 'react';
 import { useState } from 'react';
 
-export default function NewTodoForm({ handleAddTodoClick }) {
+export const NewTodoForm: React.FC<{
+  handleAddTodoClick: Function;
+}> = (props) => {
   const [assigned, setAssigned] = useState('');
   const [description, setDescription] = useState('');
 
   const handleSubmitTodo = () => {
     if (description !== '' && assigned !== '') {
-      handleAddTodoClick(assigned, description);
+      props.handleAddTodoClick(assigned, description);
       setAssigned('');
       setDescription('');
     }
@@ -45,4 +48,4 @@ export default function NewTodoForm({ handleAddTodoClick }) {
       </form>
     </div>
   );
-}
+};
